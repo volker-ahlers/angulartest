@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ElectronService } from 'ngx-electron';
 
 import { ElectronComponent } from './electron.component';
 
@@ -8,7 +9,10 @@ describe('ElectronComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ElectronComponent ]
+      declarations: [ ElectronComponent ],
+      providers: [
+        ElectronService // Right place to set HomeService
+      ],
     })
     .compileComponents();
 

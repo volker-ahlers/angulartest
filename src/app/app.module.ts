@@ -36,13 +36,11 @@ import { ServicetestModule } from './servicetest/servicetest.module';
     FormComponent,
     TemplateformComponent,
     HomeComponent,
-    
   ],
   imports: [
     BrowserModule,
     ServicetestModule,
     ModulingModule,
-
     AppRoutingModule,
     NgxElectronModule,
     BrowserAnimationsModule,

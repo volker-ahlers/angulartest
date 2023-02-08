@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { TemplateformComponent } from './templateform.component';
 
 describe('TemplateformComponent', () => {
@@ -8,9 +9,9 @@ describe('TemplateformComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemplateformComponent ]
-    })
-    .compileComponents();
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [TemplateformComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TemplateformComponent);
     component = fixture.componentInstance;
@@ -19,5 +20,36 @@ describe('TemplateformComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should create ViewChild myForm', () => {
+    expect(component.myForm).toBeTruthy();
+  });
+
+  it('should create ViewChild emailcos', () => {
+    expect(component.emailcos).toBeTruthy();
+  });
+
+  it('should myForm.value.emailcontrol be null', () => {
+    expect(component.myForm.value.emailcontrol).toEqual('');
+  });
+
+  it('should myForm.value.emailcontrol be null after resetting', () => {
+    const resetButton = fixture.debugElement.query(By.css('.reset'));
+    console.log('resetBUTTON', resetButton);
+    resetButton.triggerEventHandler('click', null);
+    expect(component.myForm.value.emailcontrol).toEqual('lll');
+  });
+
+  it('should myForm.value.emailcontrol be empy after submitting', () => {
+    const form = fixture.debugElement.query(By.css('form'));
+    console.log('SAVEBUTTON', form);
+    form.triggerEventHandler('submit', null);
+    //todo find sinnvoll test
+    expect(component.myForm.value.emailcontrol).toEqual('');
+  });
+
+  it('should testarg to be empty', () => {
+    expect(component.test).toEqual('');
   });
 });
