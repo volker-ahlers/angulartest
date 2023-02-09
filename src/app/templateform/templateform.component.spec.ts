@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { TemplateformComponent } from './templateform.component';
 
@@ -9,7 +9,7 @@ describe('TemplateformComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
+      imports: [FormsModule ],
       declarations: [TemplateformComponent],
     }).compileComponents();
 
@@ -30,13 +30,13 @@ describe('TemplateformComponent', () => {
     expect(component.emailcos).toBeTruthy();
   });
 
-  it('should myForm.value.emailcontrol be null', () => {
+  it('should myForm.value.emailcontrol be empty', () => {
     expect(component.myForm.value.emailcontrol).toEqual('');
   });
 
-  it('should myForm.value.emailcontrol be null after resetting', () => {
+  it('should myForm.value.emailcontrol be set after resetting', () => {
     const resetButton = fixture.debugElement.query(By.css('.reset'));
-    console.log('resetBUTTON', resetButton);
+    console.log('RESETBUTTON', resetButton);
     resetButton.triggerEventHandler('click', null);
     expect(component.myForm.value.emailcontrol).toEqual('lll');
   });
@@ -47,9 +47,5 @@ describe('TemplateformComponent', () => {
     form.triggerEventHandler('submit', null);
     //todo find sinnvoll test
     expect(component.myForm.value.emailcontrol).toEqual('');
-  });
-
-  it('should testarg to be empty', () => {
-    expect(component.test).toEqual('');
   });
 });
