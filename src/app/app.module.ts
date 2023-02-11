@@ -20,9 +20,12 @@ import { FormComponent } from './form/form.component';
 import { TemplateformComponent } from './templateform/templateform.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { TableComponent } from './table/table.component';
 import { ModulingModule } from './moduling/moduling.module';
 import { ElectronModule } from './electron/electron.module';
 import { ServicetestModule } from './servicetest/servicetest.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { ServicetestModule } from './servicetest/servicetest.module';
     FormComponent,
     TemplateformComponent,
     HomeComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,7 @@ import { ServicetestModule } from './servicetest/servicetest.module';
     MatListModule,
     FormsModule,
     ElectronModule,
-
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
