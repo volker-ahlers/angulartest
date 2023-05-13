@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent {
   @ViewChild('table') table!: any;
@@ -93,7 +94,7 @@ export class TableComponent {
   tableWidth() {
     const x = this.table.nativeElement.querySelector('td');
     const width =
-      x.offsetWidth * this.tableForm.get('columns').value + 50 + 'px';
+      x.offsetWidth * this.tableForm.get('columns').value + 10 + 'px';
     if (this.extended) {
       this.tablewidth = width;
     } else {

@@ -29,7 +29,7 @@
                 (change)="changeTableAgain()">
         </div>
         <div class="mb-3">
-            <label class="form-label" for="columnsi">rows: {{ tableColumns.value }}</label>
+            <label class="form-label" for="columnsi">columns: {{ tableColumns.value }}</label>
             <input id="columnsi" type="range" [formControl]="tableColumns" min="{{ initialColumns }}" max="200"
                 (change)="changeTableAgain()">
         </div>
@@ -39,8 +39,8 @@
 
     <table #table [style.width]="tablewidth">
         <tr *ngFor="let row of getRows(); let c = index">
-            <td contenteditable *ngFor="let row of getColumns(); let i = index"><span *ngIf="isContentVisible">{{ c +
-                    '/' + i }}</span></td>
+            <td contenteditable *ngFor="let row of getColumns(); let i = index"><span *ngIf="isContentVisible">{{ c+1 +
+                    '/' + i+1 }}</span></td>
         </tr>
     </table>
 
